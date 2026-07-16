@@ -2,7 +2,7 @@ import axios from "axios";
 import type { FeedbackRequest } from "../types/Feedback";
 
 const api = axios.create({
-  baseURL: "https://luminous-renewal-production-a502.up.railway.app",
+  baseURL: "http://localhost:8081",
 });
 
 api.interceptors.request.use((config) => {
