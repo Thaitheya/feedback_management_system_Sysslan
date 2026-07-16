@@ -22,6 +22,10 @@ public class AuthController {
     public AuthController(AuthService authService) {
         this.authService = authService;
     }
+    @PostMapping("/health")
+    public String register()  {
+        return "Up and running";
+    }
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
