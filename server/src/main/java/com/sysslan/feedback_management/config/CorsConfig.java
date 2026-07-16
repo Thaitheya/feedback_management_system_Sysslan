@@ -1,32 +1,28 @@
-// package com.sysslan.feedback_management.config;
+package com.sysslan.feedback_management.config;
 
-// import org.springframework.web.cors.CorsConfiguration;
-// import org.springframework.web.cors.CorsConfigurationSource;
-// import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-// import java.util.List;
-// import org.springframework.context.annotation.Bean;
-// import org.springframework.context.annotation.Configuration;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import java.util.List;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-// @Configuration
-// public class CorsConfig {
+@Configuration
+public class CorsConfig {
 
-//     @Bean CorsConfigurationSource corsConfigurationSource() {
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowedOrigins(List.of(
+            "http://localhost:5173",
+            "https://amazing-moonbeam-3a3971.netlify.app"
+        ));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
+        config.setAllowedHeaders(List.of("*"));
+        config.setAllowCredentials(true);
 
-//         CorsConfiguration configuration = new CorsConfiguration();
-//         configuration.setAllowedOrigins(List.of("https://amazing-moonbeam-3a3971.netlify.app"));
-
-//         configuration.setAllowedMethods(
-//                 List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-
-//         configuration.setAllowedHeaders(List.of("*"));
-
-//         configuration.setAllowCredentials(true);
-
-//         UrlBasedCorsConfigurationSource source =
-//                 new UrlBasedCorsConfigurationSource();
-
-//         source.registerCorsConfiguration("/**", configuration);
-
-//         return source;
-//     }
-// }
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
+        return source;
+    }
+}

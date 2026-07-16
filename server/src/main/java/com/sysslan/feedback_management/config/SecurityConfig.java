@@ -2,6 +2,7 @@ package com.sysslan.feedback_management.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -49,18 +50,17 @@ public class SecurityConfig {
         return provider;
     }
 
-    @Bean
-SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
+@Bean SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http
-            .cors(Customizer.withDefaults())
-            .csrf(csrf -> csrf.disable())
-            .authenticationProvider(authenticationProvider())
-            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-            .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/auth/**", "/feedback").permitAll()
-                    .anyRequest().authenticated());
-
+        .cors(cors -> {})
+        .csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(auth -> auth
+            .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()   // let preflight through
+            .requestMatchers("/auth/**").permitAll()
+            .anyRequest().authenticated()
+        )
+        // ... your existing jwt filter registration
+        ;
     return http.build();
 }
 }
