@@ -55,12 +55,10 @@ public class SecurityConfig {
         .cors(cors -> {})
         .csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()   // let preflight through
+            .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
             .requestMatchers("/auth/**").permitAll()
             .anyRequest().authenticated()
-        )
-        // ... your existing jwt filter registration
-        ;
+        );
     return http.build();
 }
 }
