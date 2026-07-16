@@ -2,7 +2,7 @@ import axios from "axios";
 import type { FeedbackRequest } from "../types/Feedback";
 
 const api = axios.create({
-  baseURL: "https://feedbackmanagementsystemsysslan-production.up.railway.app",
+  baseURL: "https://lavish-laughter-production-76b1.up.railway.app",
 });
 
 api.interceptors.request.use((config) => {
