@@ -13,8 +13,7 @@ public class CorsConfig {
     @Bean CorsConfigurationSource corsConfigurationSource() {
 
         CorsConfiguration configuration = new CorsConfiguration();
-
-        configuration.setAllowedOrigins(List.of("https://feedbackmanagementsystemts.netlify.app/"));
+        configuration.setAllowedOrigins(List.of("https://amazing-moonbeam-3a3971.netlify.app"));
 
         configuration.setAllowedMethods(
                 List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
