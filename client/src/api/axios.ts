@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://localhost:8081",
+    baseURL: "https://luminous-renewal-production-a502.up.railway.app",
     headers: {
         "Content-Type": "application/json"
     }
