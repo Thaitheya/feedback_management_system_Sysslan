@@ -22,7 +22,7 @@ public class AuthController {
     public AuthController(AuthService authService) {
         this.authService = authService;
     }
-    @PostMapping("/health")
+    @GetMapping("/health")
     public String register()  {
         return "Up and running";
     }
