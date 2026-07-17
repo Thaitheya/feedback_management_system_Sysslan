@@ -17,7 +17,7 @@ CorsConfigurationSource corsConfigurationSource() {
 
     config.setAllowedOrigins(List.of(
             "http://localhost:5173",
-            "https://yourfrontend.netlify.app"
+            "https://amazing-moonbeam-3a3971.netlify.app"
     ));
 
     config.setAllowedMethods(List.of(
