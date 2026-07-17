@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { addFeedback } from "../api/FeedbackApi";
 import Breadcrumb from "../components/Breadcrumb";
-
+import feedbackBanner from "../assets/feedbackBanner.jpg"
 export default function FeedbackForm() {
   const navigate = useNavigate();
   const { category } = useParams();
@@ -73,7 +73,7 @@ export default function FeedbackForm() {
           {/* Left Side Image */}
           <div className="bg-slate-800 flex flex-col items-center justify-center p-10">
             <img
-              src="\src\assets\FeedbackBanner.jpg"
+              src={feedbackBanner}
               alt="Feedback"
               className="w-150 h-96 object-contain"
             />
