@@ -2,7 +2,7 @@ import axios from "axios";
 import type { FeedbackRequest } from "../types/Feedback";
 
 const api = axios.create({
-  baseURL: "http://localhost:8081",
+  baseURL: "https://feedback-management-system-sysslan.onrender.com",
 });
 
 api.interceptors.request.use((config) => {
