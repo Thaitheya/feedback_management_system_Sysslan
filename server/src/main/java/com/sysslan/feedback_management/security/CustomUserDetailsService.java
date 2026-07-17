@@ -1,6 +1,5 @@
 package com.sysslan.feedback_management.security;
 
-import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsPasswordService;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -8,6 +7,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.sysslan.feedback_management.repository.UserRepository;
+
+import io.micrometer.common.lang.Nullable;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService, UserDetailsPasswordService {
