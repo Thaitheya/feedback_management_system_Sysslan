@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Register from "./pages/Register";
 import Login from "./pages/Login";
@@ -7,11 +7,12 @@ import FeedbackForm from "./pages/Feedbackform";
 import MyFeedback from "./pages/MyFeedback";
 import AllFeedback from "./pages/AllFeedback";
 import FeedbackCategory from "./components/FeedbackCategory";
+import { Navigate } from "react-router-dom";
 function App() {
   return (
     <>
-      <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -20,7 +21,6 @@ function App() {
           <Route path="/my-feedback" element={<MyFeedback />} />
           <Route path="/feedback/all" element={<AllFeedback />} />
         </Routes>
-      </BrowserRouter>
     </>
   );
 }
