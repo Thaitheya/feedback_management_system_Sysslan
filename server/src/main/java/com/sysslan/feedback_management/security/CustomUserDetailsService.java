@@ -30,7 +30,6 @@ public class CustomUserDetailsService implements UserDetailsService, UserDetails
 
     @Override
     public UserDetails updatePassword(UserDetails arg0, @Nullable String arg1) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'updatePassword'");
     }
 }
